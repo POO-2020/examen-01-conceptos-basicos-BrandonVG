@@ -25,7 +25,6 @@ export default class Reservacion{
         this.huespedes.forEach(huesped=>{
             return listaHuesped +="\n"+huesped.getDescripcion();
         })
-        console.log(listaHuesped);
         console.log(`Habitacion: ${this.numeroHabitacion}\n${this.noches} noches reservadas\nFecha de llegada: ${this.getFechaFormatoCorto()}${listaHuesped}`);
     }
 }
