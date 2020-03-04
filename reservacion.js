@@ -1,18 +1,18 @@
 export default class Reservacion{
     /**
      * 
-     * @param {number} numeroHabitacion 
-     * @param {Date} fechaLlegada 
-     * @param {number} noches 
+     * @param {number} numeroHabitacion Numero de habitacion
+     * @param {Date} fechaLlegada Fecha de llegada
+     * @param {number} noches Numero de noches
      */
     constructor(numeroHabitacion,fechaLlegada,noches){
         this.numeroHabitacion= numeroHabitacion;
-        this.fechaLlegada= new Date(año, mes - 1, dia);
+        this.fechaLlegada= fechaLlegada;
         this.noches=noches;
         this.huespedes=[];
     }
     getFechaFormatoCorto(){
-        return (`${this.fechaLlegada.dia}/${this.fechaLlegada.mes}/${this.fechaLlegada.año}`);
+        return `${this.fechaLlegada.getDate()}/${this.fechaLlegada.getMonth()}/${this.fechaLlegada.getFullYear()}`;
     }
     addHuesped(huesped){
         this.huespedes.push(huesped);
@@ -21,6 +21,11 @@ export default class Reservacion{
         return (this.huespedes.length);
     }
     print(){
-        return `Habitacion: ${this.numeroHabitacion}\n Fecha de llegada: ${this.fechaLlegada.getFechaFormatoCorto()}`
+        var listaHuesped= "";
+        this.huespedes.forEach(huesped=>{
+            return listaHuesped +="\n"+huesped.getDescripcion();
+        })
+        console.log(listaHuesped);
+        console.log(`Habitacion: ${this.numeroHabitacion}\n${this.noches} noches reservadas\nFecha de llegada: ${this.getFechaFormatoCorto()}${listaHuesped}`);
     }
 }

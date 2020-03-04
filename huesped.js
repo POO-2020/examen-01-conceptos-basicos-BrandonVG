@@ -9,6 +9,6 @@ export default class Huesped{
         this.genero = genero;
     }
     getDescripcion(){
-        return `Nombre: ${this.nombre} Genero: ${this.genero}`;
+        return `${this.nombre} (${this.genero})`;
     }
 }
